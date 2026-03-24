@@ -1,0 +1,98 @@
+html, body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.headbar {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 40px; 
+  height: 70px;
+  box-sizing: border-box;
+}
+
+.headbar-auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.auth-btn {
+  font-family: 'Montserrat', 'Segoe UI', 'Arial', 'sans-serif';
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  color: gray;
+}
+
+.auth-btn:hover {
+  color: #28631b;
+  background-color: rgba(40, 99, 27, 0.05);
+}
+
+.auth-divider {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  margin: 0 4px;
+}
+
+.headbar-items {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
+.headbar-item {
+  padding: 0 20px;
+  font-size: 1.1rem;
+  color: gray;
+  cursor: pointer;
+  transition: color 0.2s;
+  font-family: 'Montserrat', 'Segoe UI', 'Arial', 'sans-serif';
+  font-weight: 500;
+}
+
+.headbar-item:hover {
+  color: #28631b;
+}
+
+@media (max-width: 900px) {
+  .headbar {
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 10px 0;
+  }
+  
+  .headbar-items {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .headbar-item {
+    padding: 12px 20px;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .headbar-auth-buttons {
+    margin: 10px 0;
+    width: 100%;
+    justify-content: center;
+  }
+}

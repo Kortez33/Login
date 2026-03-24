@@ -1,0 +1,57 @@
+@media (max-width: 900px) {
+  .top-section {
+    min-height: 220px;
+    padding: 0 8px;
+  }
+  .top-text {
+    font-size: 2rem;
+    padding: 16px 8px;
+    max-width: 95vw;
+  }
+}
+.top-section {
+  width: 100vw;
+  min-height: 1200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-text {
+  color: #fff;
+  font-size: 3.2rem;
+  font-family: 'Poppins', 'Montserrat', 'Segoe UI', 'Arial', 'sans-serif';
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+  padding: 24px 32px;
+  max-width: 480px;
+  border-radius: 12px;
+}
+
+.top-text-word {
+  display: block;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    min-height: 250px;
+  }
+  .hero-text {
+    font-size: 2rem;
+  }
+}

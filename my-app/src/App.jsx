@@ -1,25 +1,30 @@
 import { useAuthModal } from './contexts/AuthModalContext';
-import { Button, Container, Typography, Box } from '@mui/material';
+import Headbar from './components/Headbar';
+import TopSection from './components/TopSection';
+import ValueSection from './components/ValueSection';
+import CardGrid from './components/CardGrid';
 
 function App() {
   const { openLogin, openRegister } = useAuthModal();
 
   return (
-    <Container sx={{ mt: 5, textAlign: 'center' }}>
-      <Typography variant="h3" gutterBottom>
-        Kezdőlap
-      </Typography>
-
-      <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', mt: 4 }}>
-        <Button variant="contained" onClick={openLogin}>
-          Bejelentkezés
-        </Button>
-        <Button variant="outlined" onClick={openRegister}>
-          Regisztráció
-        </Button>
-      </Box>
-    </Container>
-  )
+    <>
+      <Headbar 
+        onLoginClick={openLogin} 
+        onRegisterClick={openRegister} 
+      />
+      
+      <TopSection
+        imageUrl="/images/top-image.png"
+        text="Szolgáltatásaink cégeknek, intézményeknek"
+      />
+      <ValueSection />
+      
+      <main>
+        <CardGrid />
+      </main>
+    </>
+  );
 }
 
 export default App;

@@ -12,10 +12,10 @@ export const useLogin = (onSuccess) => {
     setIsLoading(true);
 
     setTimeout(() => {
-      if (username === 'admin' && password === 'fasz') {
+      if (username === 'admin' && password === 'FreeWork4All') {
         if (onSuccess) onSuccess();
       } else {
-        setError('NEM FASZA');
+        setError('Rossz adatok');
       }
       setIsLoading(false);
     }, 1000);
