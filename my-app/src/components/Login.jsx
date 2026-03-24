@@ -1,87 +1,83 @@
 import { useLogin } from '../hooks/useLogin';
-
-
-import { 
-  Box, 
-  Button, 
-  TextField, 
-  Typography, 
-  Container, 
-  Paper, 
-  Alert,
-  CircularProgress
+import {
+  Box, Button, TextField, Typography, Paper, Alert,
+  CircularProgress, Modal, Divider
 } from '@mui/material';
 
-export const Login = () => {
-  const { 
-    username, setUsername, 
-    password, setPassword, 
-    error, isLoading, handleLogin 
-  } = useLogin();
+const modalStyle = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  boxShadow: 24,
+  p: 4,
+  borderRadius: 2,
+  outline: 'none',
+};
 
+export const LoginModal = ({ open, onClose, onSwitchToRegister }) => {
+  const {
+    username, setUsername,
+    password, setPassword,
+    error, isLoading, handleLogin
+  } = useLogin(onClose);
   return (
-    <Container component="main" maxWidth="xs">
-
-      <Paper 
-        elevation={3} 
-        sx={{ 
-          marginTop: 8, 
-          padding: 4, 
-          display: 'flex', 
-          flexDirection: 'column', 
-          alignItems: 'center' 
-        }}
-      >
-        <Typography component="h1" variant="h5">
+    <Modal
+      open={open}
+      onClose={onClose}
+      slotProps={{
+        backdrop: {
+          sx: {
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            backdropFilter: 'blur(6px)',
+          },
+        },
+      }}
+    >
+      <Paper sx={modalStyle} elevation={24}>
+        <Typography component="h1" variant="h5" align="center" mb={2}>
           Bejelentkezés
         </Typography>
 
-        <Box component="form" onSubmit={handleLogin} sx={{ mt: 1, width: '100%' }}>
-          
+        <Box component="form" onSubmit={handleLogin}>
           <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="username"
+            margin="normal" required fullWidth
             label="Felhasználónév"
-            name="username"
-            autoFocus
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             disabled={isLoading}
           />
-          
           <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Jelszó"
-            type="password"
-            id="password"
+            margin="normal" required fullWidth
+            label="Jelszó" type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             disabled={isLoading}
           />
 
-          {error && (
-            <Alert severity="error" sx={{ mt: 2 }}>
-              {error}
-            </Alert>
-          )}
+          {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
 
           <Button
-            type="submit"
-            fullWidth
-            variant="contained"
+            type="submit" fullWidth variant="contained"
             sx={{ mt: 3, mb: 2, height: '48px' }}
             disabled={isLoading}
           >
             {isLoading ? <CircularProgress size={24} color="inherit" /> : 'Belépés'}
           </Button>
 
+          <Divider sx={{ my: 2 }}>VAGY</Divider>
+
+          <Button
+            fullWidth variant="text"
+            onClick={onSwitchToRegister}
+            disabled={isLoading}
+          >
+            Nincs még fiókod? Regisztrálj!
+          </Button>
         </Box>
       </Paper>
-    </Container>
+    </Modal>
   );
 };

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useLogin = () => {
+export const useLogin = (onSuccess) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -13,22 +13,17 @@ export const useLogin = () => {
 
     setTimeout(() => {
       if (username === 'admin' && password === 'fasz') {
-        alert('fasza');
-
+        if (onSuccess) onSuccess();
       } else {
         setError('NEM FASZA');
       }
       setIsLoading(false);
-    }, 1000); 
+    }, 1000);
   };
 
   return {
-    username,
-    setUsername,
-    password,
-    setPassword,
-    error,
-    isLoading,
-    handleLogin
+    username, setUsername,
+    password, setPassword,
+    error, isLoading, handleLogin
   };
 };
