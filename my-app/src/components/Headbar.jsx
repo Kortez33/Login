@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Ezt importáljuk
 import '../css/Headbar.css';
 
 const Headbar = ({ onLoginClick, onRegisterClick }) => {
@@ -15,10 +16,10 @@ const Headbar = ({ onLoginClick, onRegisterClick }) => {
       </div>
 
       <div className="headbar-items">
-        <span className="headbar-item">Rólunk</span>
-        <span className="headbar-item">Oktatás</span>
-        <span className="headbar-item">Cégeknek</span>
-        <span className="headbar-item">Önkormányzatoknak</span>
+        <Link to="/rolunk" className="headbar-item">Rólunk</Link>
+        <Link to="/oktatas" className="headbar-item">Oktatás</Link>
+        <Link to="/" className="headbar-item">Cégeknek</Link> {/* Ez most mutasson a főoldalra */}
+        <Link to="/onkormanyzatoknak" className="headbar-item">Önkormányzatoknak</Link>
       </div>
     </div>
   );

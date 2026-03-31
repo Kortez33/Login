@@ -21,7 +21,7 @@ const cardData = [
     imageAlt: "Pucolj ki! szabadulószoba",
   },
   {
-    id: 3, 
+    id: 3,
     title: 'LogiQka',
     description: 'A titkokat rejtő kuka felfedezésre vár! Csapatban teljesíthető inverz szabadulószoba',
     hasOfferButton: true,
@@ -66,7 +66,7 @@ const CardGrid = () => {
   };
 
   const renderCard = (card) => {
-    // Sima Reactben a public mappában lévő képekre így hivatkozunk
+
     const imagePath = card.imageUrl.startsWith('/') ? card.imageUrl : `/images/${card.imageUrl.replace(/^.*[\\/]/, '')}`;
 
     return (
@@ -85,7 +85,7 @@ const CardGrid = () => {
           <h2 className="card-title">{card.title}</h2>
           <p className="card-description">{card.description}</p>
           {card.hasOfferButton && (
-            <button 
+            <button
               className="offer-button"
               onClick={() => handleOfferRequest(card.id)}
             >
