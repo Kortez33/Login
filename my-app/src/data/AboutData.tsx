@@ -4,8 +4,28 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import HomeIcon from '@mui/icons-material/Home';
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import type { ReactNode } from 'react';
 
-export const featuresData = [
+interface FeatureData {
+    id: number;
+    icon: ReactNode;
+    title: string;
+    desc: string;
+}
+
+export interface TimelineItemData {
+    id: number;
+    alignment: 'left' | 'right';
+    color: string;
+    leafPosition?: string;
+    mt: number;
+    title?: string;
+    content?: string;
+    isImage?: boolean;
+    isDarkText?: boolean;
+}
+
+export const featuresData: FeatureData[] = [
     {
         id: 1,
         icon: <MenuBookIcon fontSize="large" />,
@@ -38,7 +58,7 @@ export const featuresData = [
     }
 ];
 
-export const timelineData = [
+export const timelineData: TimelineItemData[] = [
     {
         id: 1, alignment: "right", color: "#489d44", leafPosition: "top-right", mt: 0,
         title: "ALAKULÁSUNK",

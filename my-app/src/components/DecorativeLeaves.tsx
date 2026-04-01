@@ -1,8 +1,13 @@
 import React from 'react';
 import { Box } from '@mui/material';
+import type { SxProps, Theme } from '@mui/material';
 import { styles } from '../css/DecorativeLeaves.styles';
 
-const DecorativeLeaves = ({ sx }) => (
+interface DecorativeLeavesProps {
+    sx?: SxProps<Theme>;
+}
+
+const DecorativeLeaves = ({ sx }: DecorativeLeavesProps) => (
     <Box
         component="svg"
         viewBox="0 0 100 100"

@@ -1,8 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Ezt importáljuk
+import { Link } from 'react-router-dom';
 import '../css/Headbar.css';
 
-const Headbar = ({ onLoginClick, onRegisterClick }) => {
+interface HeadbarProps {
+  onLoginClick: () => void;
+  onRegisterClick: () => void;
+}
+
+const Headbar = ({ onLoginClick, onRegisterClick }: HeadbarProps) => {
   return (
     <div className="headbar">
       <div className="headbar-auth-buttons">

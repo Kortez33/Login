@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import type { FormEvent } from 'react';
 
-export const useRegister = (onSuccess) => {
+export const useRegister = (onSuccess: () => void) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleRegister = async (e) => {
+    const handleRegister = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError('');
 

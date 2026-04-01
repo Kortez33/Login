@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import "../css/CardGrid.css";
 
-const cardData = [
+interface CardData {
+  id: number;
+  title: string;
+  description: string;
+  hasOfferButton: boolean;
+  buttonText: string;
+  imageUrl: string;
+  imageAlt: string;
+}
+
+const cardData: CardData[] = [
   {
     id: 1,
     title: "Előadás",
@@ -61,11 +71,11 @@ const cardData = [
 const CardGrid = () => {
   const [cards] = useState(cardData);
 
-  const handleOfferRequest = (cardId) => {
+  const handleOfferRequest = (cardId: number) => {
     alert(`Ajánlat kérés a ${cardId} kártyához`);
   };
 
-  const renderCard = (card) => {
+  const renderCard = (card: CardData) => {
 
     const imagePath = card.imageUrl.startsWith('/') ? card.imageUrl : `/images/${card.imageUrl.replace(/^.*[\\/]/, '')}`;
 
