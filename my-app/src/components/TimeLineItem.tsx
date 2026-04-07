@@ -3,7 +3,18 @@ import { Box, Typography } from '@mui/material';
 import DecorativeLeaves from './DecorativeLeaves';
 import { styles } from '../css/TimeLineItem.styles';
 
-const TimelineItem = ({ alignment, color, title, content, leafPosition, isImage, mt, isDarkText }) => {
+interface TimelineItemProps {
+    alignment: 'left' | 'right';
+    color: string;
+    title?: string;
+    content?: string;
+    leafPosition?: string;
+    isImage?: boolean;
+    mt?: number;
+    isDarkText?: boolean;
+}
+
+const TimelineItem = ({ alignment, color, title, content, leafPosition, isImage, mt, isDarkText }: TimelineItemProps) => {
     const isLeft = alignment === 'left';
 
     const cardContent = (

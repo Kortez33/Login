@@ -1,7 +1,12 @@
 import React from 'react';
 import '../css/TopSection.css';
 
-const TopSection = ({ imageUrl, text }) => {
+interface TopSectionProps {
+  imageUrl: string;
+  text: string;
+}
+
+const TopSection = ({ imageUrl, text }: TopSectionProps) => {
   return (
     <div className="top-section" style={{ backgroundImage: `url(${imageUrl})` }}>
       <div className="top-overlay">

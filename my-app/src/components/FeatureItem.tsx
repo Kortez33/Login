@@ -1,8 +1,15 @@
 import React from 'react';
+import type { ReactNode } from 'react';
 import { Box, Typography } from '@mui/material';
 import { styles } from '../css/FeatureItem.styles';
 
-const FeatureItem = ({ icon, title, desc }) => (
+interface FeatureItemProps {
+  icon: ReactNode;
+  title: string;
+  desc: string;
+}
+
+const FeatureItem = ({ icon, title, desc }: FeatureItemProps) => (
   <Box sx={styles.container}>
 
     <Box sx={styles.iconBox}>

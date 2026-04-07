@@ -1,13 +1,28 @@
 import { createContext, useContext, useState } from 'react';
-import { LoginModal } from '../components/LoginModal.jsx';
+import type { ReactNode } from 'react';
+import { LoginModal } from '../components/LoginModal';
 import { RegisterModal } from '../components/RegisterModal';
 
-const AuthModalContext = createContext();
+interface AuthModalContextValue {
+    openLogin: () => void;
+    openRegister: () => void;
+    closeModal: () => void;
+}
 
-export const useAuthModal = () => useContext(AuthModalContext);
+const AuthModalContext = createContext<AuthModalContextValue | null>(null);
 
-export const AuthModalProvider = ({ children }) => {
-    const [activeModal, setActiveModal] = useState(null);
+export const useAuthModal = (): AuthModalContextValue => {
+    const ctx = useContext(AuthModalContext);
+    if (!ctx) throw new Error('useAuthModal must be used within AuthModalProvider');
+    return ctx;
+};
+
+interface AuthModalProviderProps {
+    children: ReactNode;
+}
+
+export const AuthModalProvider = ({ children }: AuthModalProviderProps) => {
+    const [activeModal, setActiveModal] = useState<'login' | 'register' | null>(null);
 
     const openLogin = () => setActiveModal('login');
     const openRegister = () => setActiveModal('register');

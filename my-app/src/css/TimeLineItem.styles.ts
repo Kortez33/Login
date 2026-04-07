@@ -52,14 +52,14 @@ export const styles = {
         alignItems: 'center'
     },
 
-    getOuterWrapper: (mt) => ({
+    getOuterWrapper: (mt: number | undefined) => ({
         display: 'flex',
         width: '100%',
         mt: mt || 0,
         position: 'relative'
     }),
 
-    getCardContent: (color, isDarkText) => ({
+    getCardContent: (color: string, isDarkText?: boolean) => ({
         position: 'relative',
         width: '100%',
         maxWidth: '340px',
@@ -75,7 +75,7 @@ export const styles = {
         zIndex: 2,
     }),
 
-    getLeafTransform: (leafPosition) => {
+    getLeafTransform: (leafPosition: string | undefined) => {
         switch (leafPosition) {
             case 'top-right': return { top: -20, right: -20, transform: 'rotate(45deg)' };
             case 'top-left': return { top: -20, left: -20, transform: 'scaleX(-1) rotate(45deg)' };

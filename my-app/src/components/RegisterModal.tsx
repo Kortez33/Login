@@ -17,7 +17,13 @@ const modalStyle = {
     outline: 'none',
 };
 
-export const RegisterModal = ({ open, onClose, onSwitchToLogin }) => {
+interface RegisterModalProps {
+    open: boolean;
+    onClose: () => void;
+    onSwitchToLogin: () => void;
+}
+
+export const RegisterModal = ({ open, onClose, onSwitchToLogin }: RegisterModalProps) => {
     const {
         username, setUsername, password, setPassword, confirmPassword, setConfirmPassword, error, isLoading, handleRegister
     } = useRegister(onClose);

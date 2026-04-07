@@ -17,7 +17,13 @@ const modalStyle = {
   outline: 'none',
 };
 
-export const LoginModal = ({ open, onClose, onSwitchToRegister }) => {
+interface LoginModalProps {
+  open: boolean;
+  onClose: () => void;
+  onSwitchToRegister: () => void;
+}
+
+export const LoginModal = ({ open, onClose, onSwitchToRegister }: LoginModalProps) => {
   const {
     username, setUsername,
     password, setPassword,
